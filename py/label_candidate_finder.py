@@ -4,8 +4,8 @@ import re
 
 MAX_LENGTH = 10000
 
-class LabelCandidateFinder(CandidateFinder):
 
+class LabelCandidateFinder(CandidateFinder):
     def __init__(self, field, fid, max_xgap=MAX_LENGTH, max_ygap=MAX_LENGTH, bbox=None):
         """Set up parameters for the candidate search.
 

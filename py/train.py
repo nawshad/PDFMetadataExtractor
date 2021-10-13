@@ -1,7 +1,7 @@
 import estimators
 from settings import Settings
 from sqlalchemy.orm import joinedload
-from sklearn.grid_search import GridSearchCV
+from sklearn.model_selection import GridSearchCV
 import pandas as pd
 import pickle
 import yaml
