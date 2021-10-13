@@ -87,7 +87,6 @@ class Settings:
         """The allowable substitutions to be used when generating patterns."""
         return self._data['substitutions']
 
-
     def get_directory(self, name):
         """Retrieve the absolute path for a directory."""
         return self._directories[name]
