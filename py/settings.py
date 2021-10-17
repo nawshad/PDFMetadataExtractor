@@ -118,7 +118,7 @@ class Settings:
         """
 
         with open(self.get_file('label'), "r") as f:
-            return yaml.load(f)
+            return yaml.load(f, Loader=yaml.FullLoader)
 
     # TODO: the following would probably fit better somewhere else
     def strip_labels(self, text):

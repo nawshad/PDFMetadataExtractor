@@ -23,8 +23,9 @@ if __name__ == "__main__":
         #Extract all of the PDFs in the pdf directory to the database.
         session = settings.session()
         pdf_dir = settings.get_directory('pdf')
-
+        print("pdf_dir:", pdf_dir)
         existing = [fn[0] for fn in session.query(Document.filename)]
+        print("Existing:", existing)
         labels = settings.load_labels()
 
         for filename in os.listdir(pdf_dir):
