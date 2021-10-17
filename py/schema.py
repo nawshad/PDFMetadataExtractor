@@ -11,7 +11,7 @@ def document_table(fields, metadata):
                  Column('filename', String(255), unique=True),
                  Column('num_pages', Integer),
                  Column('is_test', Boolean, index=True),
-                 *(Column(fn, field.col_type) for fn, field in fields.iteritems())
+                 *(Column(fn, field.col_type) for fn, field in fields.items())
               )
 
 
