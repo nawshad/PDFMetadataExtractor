@@ -24,7 +24,11 @@ class Settings:
             filename = self.default_file()
         self.filename = filename
         self._load_from_file()
+        print("loaded data:", self._data, "data substitutions:", self._data['substitutions'])
         self.pattern_builder = pattern_builder.PatternBuilder(self._data['substitutions'])
+        print("Pattern-built:", self.pattern_builder)
+        print("Pattern Character:", self.pattern_builder.character_pattern('e'))
+        print("Pattern String:", self.pattern_builder.string_pattern('hello world!'))
 
         self._load_fields()
         self._set_files()
@@ -35,7 +39,7 @@ class Settings:
     def _load_from_file(self):
         """Load the settings from the given filename."""
         with open(self.filename, 'r') as f:
-            self._data = yaml.load(f)
+            self._data = yaml.load(f, Loader=yaml.FullLoader)
 
     def session(self):
         """Get a SQLAlchemy session object for the database specified."""
@@ -58,13 +62,13 @@ class Settings:
         """Get filenames from  settings dictionary and store absolute paths."""
         files = collections.defaultdict(dict, self._data['files'])
         self._files = {key: self.resolve_path(value)
-                       for key, value in files.iteritems()}
+                       for key, value in files.items()}
 
     def _set_directories(self):
         """Store absolute paths for directories."""
         directories = collections.defaultdict(dict, self._data['directories'])
         self._directories = {key: self.resolve_path(value)
-                             for key, value in directories.iteritems()}
+                             for key, value in directories.items()}
 
     def resolve_path(self, path):
         """Convert a filename from the settings file to an absolute path.

@@ -26,7 +26,8 @@ class Field(object):
         """Load the fields features as defined in the settings."""
         self.features = {}
         infos = self._data['features']
-        for name, info in infos.iteritems():
+        print("Infos:", infos)
+        for name, info in infos.items():
             module = importlib.import_module(info['module'])
             cls = info['class']
             params = info.get('parameters', {})
