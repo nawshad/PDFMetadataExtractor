@@ -5,4 +5,5 @@
  - run setup, with a file existing in pdf dir under root dir.
  - specify which labels to extract and their corresponding configurations
 or key, value pairs see for example: in pdf_classes.py "Document" class attributes.
- - TODO: study how pdfminer works.
+ - TODO: study how pdfminer works. See database Table "Document" and make one
+label.json file having the key (see table columns) and dummy corresponding values.
