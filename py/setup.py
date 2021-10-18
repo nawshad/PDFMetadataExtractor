@@ -39,6 +39,5 @@ if __name__ == "__main__":
                     session.rollback()
                     print (filename, e)
 
-
         #query=Document.update().values(Document.is_test=1)
 
