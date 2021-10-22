@@ -27,14 +27,13 @@ if __name__ == "__main__":
         existing = [fn[0] for fn in session.query(Document.filename)]
         print("Existing:", existing)
         labels = settings.load_labels()
-
+        print("labels:", labels)
         for filename in os.listdir(pdf_dir):
             if filename not in existing:
                 file_labels = labels.get(filename, {})
-
                 try:
-                    with open(os.path.join(pdf_dir, filename), "r") as fp:
-                        extract_pdf_data(fp, settings.test_proportion, file_labels, session)
+                    with open(os.path.join(pdf_dir, filename), "rb") as fp:
+                        print("Document", extract_pdf_data(fp, settings.test_proportion, file_labels, session))
                 except Exception as e:
                     session.rollback()
                     print (filename, e)

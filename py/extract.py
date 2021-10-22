@@ -7,9 +7,7 @@ from pdfminer.layout import LAParams, LTTextBox, LTTextLine
 from pdfminer.layout import LTTextLineVertical, LTTextBoxVertical
 
 from random import random
-
 from pdf_classes import *
-
 import re
 import os
 
