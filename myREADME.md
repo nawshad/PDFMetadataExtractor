@@ -1,6 +1,7 @@
 ### I followed the following steps to run this
 
-####Metadata Extraction Steps:
+#### Metadata Extraction Steps:
+
  - First install mysql server
  - run python setup.py --schema
  - create necessary dirs under root dir to store files, the pdf files which need to be analyzed
@@ -9,7 +10,7 @@ should be stored in pdf dir.
 or key, value pairs, see, labels.json file.
  - run python setup.py
 
-####New Metadata Learning and Extraction Steps:
+#### New Metadata Learning and Extraction Steps:
 
 - Figure out how, candidate labels were generated from existing files and used for training 
 unseen labels?
