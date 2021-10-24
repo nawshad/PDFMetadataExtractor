@@ -1,9 +1,10 @@
-#PDFMetaDataExtractor
+# PDFMetaDataExtractor
 
 This is a Python tool for extracting metadata from PDFs.
 It assumes that the PDFs have embedded OCR text, but it allows for the possibility of noisy OCR text.
 
-##How it works
+## How it works
+
 `PDFMetaDataExtractor` takes a two-phase approach to identifying metadata fields in documents.
 
 The first phase is the generation of _candidates_, typically by means of a pattern-matching approach.
@@ -13,7 +14,8 @@ Once candidates have been identified, a machine learning approach can be taken t
 The basic approach here is to score all candidates in training documents by their similarity to the real value and then train a regressor to use text features to predict match scores.
 When a new document comes in, candidates are identified, scores are predicted using the trained regression model, and the highest (predicted) scoring candidate is chosen.
 
-##Configuration
+## Configuration
+
 Configuration is via a YAML settings file. A sample settings file is provided in `settings.sample.yml`.
 
 Fields to be extracted are specified in `fields`. 
@@ -60,7 +62,8 @@ The settings file should also specify the following keys:
         More information on these parameters is available in [SQLAlchemy documentation](http://docs.sqlalchemy.org/en/latest/core/engines.html).
 -   `extra_labels` - A list of label texts to be ignored for all fields. 
 
-##Usage
+## Usage
+
 Once the settings have been defined, the next step is to install the database schema.
 To do this, run the `py/setup.py` script with the `--schema` flag. 
 After the schema is installed, the PDF text and structure can be extracted to the database.
@@ -99,10 +102,12 @@ A model can be tested on the reserved test set using the `test.py` script.
 Once a model has been selected, adding the `model_definition` key to the field in the settings file will allow the model to be used by calling the field's `predict` method.
 
 
-##Extending
+## Extending
+
 `PDFMetadataExtractor` is modular and flexible.
 It can be extended in the following ways.
-###Field types
+### Field types
+
 A field type defines various properties of a metadata field, including how it will be extracted from a string of text and how it will be stored.
 Currently, two field type classes are defined in `py/fields.py` for handling dates and human names.
  
@@ -126,7 +131,8 @@ By default, it simply tests two values for equality.
 It is often useful to override this method.
 The `HumanName` class, for instance, uses a similarity score based on the Levenshtein distance.
 
-###Candidate Finders
+### Candidate Finders
+
 Out of the box, `PDFMetadataExtractor` includes two candidate finders, `LabelCandidateFinder` (defined in `py/label_candidate_finder.py`) and `BoxPhraseCandidateFinder` (defined in `py/box_phrase_candidate_finder.py`).
 Additional candidate finders can be defined by extending the `CandidateFinder` class defined in `py/candidate.py`.
 
@@ -136,12 +142,13 @@ Note that to construct candidates `get_candidates` method must call the field's 
 Sometimes it may be useful to extend the `Candidate` class so that a candidate may find candidates which carry additional information that may be utilized for feature computation.
 For instance, the file `py/label_candidate_finder.py` defines a `LabelCandidate` class which stores information about the offset between the candidate and its label text.
 
-###Features
+### Features
+
 There are many features defined in `py/features.py`. To define a new feature, one should extend the `Feature` class defined in `py/feature.py`.
 At a minimum, a feature class should implement the `compute` method, which takes a dictionary of candidates and returns a dictionary of feature values.
 If a feature takes parameters, these can be set by overriding the constructor `Feature.__init__`.
  
-##Requirements
+## Requirements
 
 - Python 2.7
 - PDFMiner
