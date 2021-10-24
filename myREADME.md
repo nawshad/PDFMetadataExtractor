@@ -1,8 +1,8 @@
-### I followed the following steps to run this
+### Steps
 
 #### Metadata Extraction Steps:
 
- - First install mysql server
+ - First install db server (I used mysql)
  - run python setup.py --schema
  - create necessary dirs under root dir to store files, the pdf files which need to be analyzed
 should be stored in pdf dir.
