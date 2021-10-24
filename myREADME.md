@@ -10,11 +10,9 @@ should be stored in pdf dir.
 or key, value pairs, see, labels.json file.
  - run python setup.py
 
-#### New Metadata Learning and Extraction Steps:
+#### TODO: New Metadata Learning and Extraction Steps:
 
-- Figure out how, candidate labels were generated from existing files and used for training 
+- Figure out how candidate labels were generated from existing files and used for training 
 unseen labels?
-- Try with a dummy file which has possible candidates and see if extracted data from it is stored 
-in the intended columns in document table.
 - Explore how "is_test" param works, current hypothesis is that, is_test flag defines
-possible candidate document, needs verification!
+possible candidate document, needs testing.
