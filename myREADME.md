@@ -3,7 +3,7 @@
 ####Metadata Extraction Steps:
  - First install mysql server
  - run python setup.py --schema
- - create necessary dirs to store files, the pdf files which need to be analyzed
+ - create necessary dirs under root dir to store files, the pdf files which need to be analyzed
 should be stored in pdf dir.
  - specify which labels to extract and their corresponding configurations
 or key, value pairs, see, labels.json file.
