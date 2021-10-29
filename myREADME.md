@@ -31,8 +31,6 @@ using scripts in test folder.
 schema.py to get more insight, roughly it seems that
 it uses an already learnt model to identify a member of
 predefined field at settings file.
-- My understanding is that, this tool would look at a new file
-and extract related fields values based on the classifier which
-was trained on. I need to clearly undertsand what this classifier
+-  I need to clearly understand what this classifier
 predicts and what are the features it uses?
 
