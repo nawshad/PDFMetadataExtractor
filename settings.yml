@@ -85,7 +85,7 @@ fields:
   date_of_birth:
     module: fields
     class: DateField
-    labels: [Date of Birth, Date of birth, DOB, D.O.B., Birthdate]
+    labels: ['Date of Birth', 'Date of birth', 'DOB', 'D.O.B.', 'Birthdate']
     features:
       lower_left_x: {module: features, class: LowerLeftX}
       lower_left_y: {module: features, class: LowerLeftY}

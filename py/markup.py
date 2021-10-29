@@ -23,7 +23,7 @@ def make_rectangle(canvas, bbox):
 def mark_pdf(clean_path, marked_path):
     """Draw rectangles around the boxes, lines, and characters in a document."""
     try:
-        with open(os.path.join(clean_path)) as fp:
+        with open(os.path.join(clean_path), mode="rb") as fp:
             parser = PDFParser(fp)
             pdf = PDFDocument(parser)
             parser.set_document(pdf)
@@ -84,5 +84,5 @@ if __name__ == "__main__":
 
     clean_path = os.path.join(pdf_dir, args.filename)
     marked_path = os.path.join(marked_pdf_dir, args.filename)
-
+    print("Marked Path:", marked_path)
     mark_pdf(clean_path, marked_path)
