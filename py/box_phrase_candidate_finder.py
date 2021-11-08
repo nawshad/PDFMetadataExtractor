@@ -3,6 +3,7 @@ import re
 
 MAX_LENGTH = 10000
 
+
 class BoxPhraseCandidateFinder(CandidateFinder):
     """Find candidates by presence of certain phrases in their box."""
     def __init__(self, field, fid, phrases, candidate_lines,

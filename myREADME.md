@@ -34,3 +34,7 @@ predefined field at settings file.
 -  I need to clearly understand what this classifier
 predicts and what are the features it uses?
 
+#### Terminologies:
+
+- Lines: means text extracted from a PDF file.
+

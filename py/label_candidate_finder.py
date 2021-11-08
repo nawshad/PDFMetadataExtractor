@@ -25,7 +25,7 @@ class LabelCandidateFinder(CandidateFinder):
     def _match_labels(self, document):
         """Find lines containing field labels.
 
-        :param document: A Document object.
+        :param document: A Document object returned by PDFMiner.
         :return: Generator of 2-tuples of lines and (start, end) of the match.
         """
         labels = self.field.labels
