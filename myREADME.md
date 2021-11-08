@@ -36,5 +36,5 @@ predicts and what are the features it uses?
 
 #### Terminologies:
 
-- Lines: means text extracted from a PDF file.
+- **Lines:** line of text extracted from a PDF file.
 
