@@ -31,8 +31,10 @@ using scripts in test folder.
 schema.py to get more insight, roughly it seems that
 it uses an already learnt model to identify a member of
 predefined field at settings file.
--  I need to clearly understand what this classifier
-predicts and what are the features it uses?
+- I need to clearly understand what this classifier
+predicts and what are the features it uses? Take a look at the train.py
+and analyze getattr(document, field_name) which is probably coming from 
+the Document table in the DB.
 
 #### Terminologies:
 

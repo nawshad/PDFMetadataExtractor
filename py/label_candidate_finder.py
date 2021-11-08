@@ -39,15 +39,16 @@ class LabelCandidateFinder(CandidateFinder):
                 if match:
                     yield (line, match.span(0))
 
-
     def _find_next_lines(self, line):
         "Find lines following the given one, either vertically or horizontally"
         next_hor, next_vert = None, None
 
         candidates = [candidate for candidate in line.document.get_lines()
                       if candidate.page == line.page]
+
         ymin = line.y0 - self._max_ygap
         xmax = line.x1 + self._max_xgap
+
         for cand in candidates:
             # TODO account for possible page slant
             # Check for horizontal overlap
@@ -99,7 +100,6 @@ class LabelCandidateFinder(CandidateFinder):
             v_pre = [field.preprocess(text) for text in v_text]
             h_match = [field.find_value(text) for text in h_pre]
             v_match = [field.find_value(text) for text in v_pre]
-
 
             for match in h_match:
                 if match and len(match):

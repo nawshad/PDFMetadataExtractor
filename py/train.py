@@ -25,7 +25,7 @@ if __name__ == "__main__":
         model_def = yaml.load(f)
 
     field_name = model_def['field']
-    field = settings.fields[field_name]
+    field = settings.fields[field_name] # such as Patient Name
 
     parameters = model_def.get('parameters', {})
     n_jobs = model_def.get('n_jobs', 1)
@@ -52,6 +52,11 @@ if __name__ == "__main__":
         values = pd.read_csv(os.path.join(csv_dir, '%s_training_value.%s.csv'
                                           % (field_name, token)), index_col=range(3))['%s_value'%field_name]
 
+    # Here Document is  PDFMiner Object, lines means probably the texts
+    # extracted from it? Document and Document and Lines Table were joined here.
+    # In the joined Table, records related to field name, such as "Patient Name" is looked for (which comes from Document Table)
+    # and their coordinates and values (related text) are used as features.
+    # TODO: Need to find out what values are saved under Patient Name field in the document?
 
     for document in session.query(Document).options(joinedload(Document.lines))\
             .filter(Document.is_test == 0):
