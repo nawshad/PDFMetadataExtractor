@@ -40,3 +40,10 @@ the Document table in the DB.
 
 - **Lines:** line of text extracted from a PDF file.
 
+### Miscellenious:
+
+- See this site for finding out purely scanned doc to text docs.
+https://stackoverflow.com/questions/55704218/how-to-check-if-pdf-is-scanned-image-or-contains-text
+- However, this method won't find out whether the pure scanned doc is 
+really a scanned text document or an image ...
+
